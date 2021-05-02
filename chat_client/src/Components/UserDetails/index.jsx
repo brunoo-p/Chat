@@ -9,7 +9,7 @@ export default function UserDetails() {
             <Content>
                 <UserImage src={avatarDefault}/>
                 <UserName> Nome usuário</UserName>
-            <label>Alter Nome</label>
+            <label>Alterar Nome</label>
             </Content>
         </Container>
     )

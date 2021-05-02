@@ -21,10 +21,16 @@ export default function Nickname({setUser, setShowPortal}) {
 
     const handleSubmitLogin = async (event) => {
         event.preventDefault();
+        const USERFINDED = 200;
 
         const response = await api.post(`/user/login?nickname=${nickname}&password=${password}`);
         console.log(response);
-        setLogin(false);
+
+        if(response.status !== USERFINDED)
+        {
+            alert("Nickname or password invalid.");
+        }
+        setShowPortal(false);
     }
 
     return (

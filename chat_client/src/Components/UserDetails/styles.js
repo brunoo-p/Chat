@@ -9,6 +9,7 @@ export const Container = styled.div`
     transition: 0.3s ease-in;
 
     border-radius:  10px;
+    color: #CCC;
     justify-content: center;
     flex-direction: column;
     background: rgba(2,2,2,.5);
@@ -16,10 +17,18 @@ export const Container = styled.div`
 
     label{
         display: flex;
-        z-index: 2;
+        width: 18%;
+        margin-top: -20px;
         font-size: 12px;
         font-weight: 700;
-        background: grey;
+        justify-content: flex-end;
+        padding: 5px;
+        cursor: pointer;
+        
+        :hover{
+            background: linear-gradient(0.45turn, rgba(64, 115, 158, .7), rgba(253, 150, 68, .5));
+        }
+            
     }
 
 
@@ -32,8 +41,9 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     display: flex;
+    width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     position: absolute;
 `;
 
