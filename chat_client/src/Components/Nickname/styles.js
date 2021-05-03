@@ -18,7 +18,6 @@ export const Container = styled.div`
     
     :hover{
         filter: drop-shadow(10px 5px 4px rgba(20,24,16, .5));
-        //filter: drop-shadow(10px 5px 4px white);
         background: linear-gradient(rgba(245,245,242, .2), rgba(6,6,6,.4) 67.36%);
         border: 1px solid rgba(205,205,202, .2);
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, UserImage, UserName } from './styles';
+import { Container, Settings, Content, UserImage, UserName } from './styles';
 import avatarDefault from '../../Assets/avatar.png'
 
 export default function UserDetails() {
@@ -9,7 +9,7 @@ export default function UserDetails() {
             <Content>
                 <UserImage src={avatarDefault}/>
                 <UserName> Nome usuário</UserName>
-            <label>Alterar Nome</label>
+                <Settings/>
             </Content>
         </Container>
     )

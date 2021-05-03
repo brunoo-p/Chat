@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BiDotsVerticalRounded } from 'react-icons/bi';
 
 export const Container = styled.div`
     width: 100%;
@@ -15,23 +16,6 @@ export const Container = styled.div`
     background: rgba(2,2,2,.5);
 
 
-    label{
-        display: flex;
-        width: 18%;
-        margin-top: -20px;
-        font-size: 12px;
-        font-weight: 700;
-        justify-content: flex-end;
-        padding: 5px;
-        cursor: pointer;
-        
-        :hover{
-            background: linear-gradient(0.45turn, rgba(64, 115, 158, .7), rgba(253, 150, 68, .5));
-        }
-            
-    }
-
-
     :hover{
         transform: scale(1.05);
         filter: drop-shadow(0px 0px 1px rgba(240,240,240, .4));
@@ -41,10 +25,26 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    width: 100%;
+    width: 95%;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 5px;
     position: absolute;
+`;
+
+export const Settings = styled(BiDotsVerticalRounded)`
+    display: flex;
+    width: 8%;
+    height: 10%;
+    justify-content: flex-end;
+    
+    padding: 1px;
+    border-radius: 7px;
+    cursor: pointer;
+    
+    :hover{
+        background: linear-gradient(0.45turn, rgba(64, 115, 158, .3), rgba(253, 150, 68, .3));
+    }
 `;
 
 export const UserImage = styled.div`
