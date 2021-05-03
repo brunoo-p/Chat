@@ -18,6 +18,23 @@ export default function Nickname({setUser, setShowPortal}) {
         setPassword((event.target.value));
     }
     
+    const handleSubmitRegister = async (event) => {
+        event.preventDefault();
+
+        const response = await api.post('/user', {name, nickname, password});
+        console.log(response);
+
+        if(response.status !== 200){
+
+            alert(response.data);
+            setPassword("");
+
+        }else{
+            
+            setUser(response.data.nickname);
+            setShowPortal(false);
+        }
+    }
 
     const handleSubmitLogin = async (event) => {
         event.preventDefault();
@@ -28,9 +45,14 @@ export default function Nickname({setUser, setShowPortal}) {
 
         if(response.status !== USERFINDED)
         {
-            alert("Nickname or password invalid.");
+            alert("Nickname or password invalids.");
+            setNickname("");
+            setPassword("");
+            
+        }else{
+
+            setShowPortal(false);
         }
-        setShowPortal(false);
     }
 
     return (
@@ -41,7 +63,7 @@ export default function Nickname({setUser, setShowPortal}) {
                     <label htmlFor="Login"> Faça Login </label>
 
                     <input type="text" name="nickname" placeholder="Seu usuário" value={nickname} onChange={handleNickName}/>
-                    <input type="text" name="password" placeholder="Senha" value={password} onChange={handlePass}/>
+                    <input type="password" name="password" placeholder="Senha" value={password} onChange={handlePass}/>
                     
                     <input type="submit" value="Entrar" className="btnSubmit" onSubmit={handleSubmitLogin}/>
                 </Form>
@@ -51,7 +73,7 @@ export default function Nickname({setUser, setShowPortal}) {
             </>
                 :
             <>
-                <Form onSubmit={handleSubmitLogin}>
+                <Form onSubmit={handleSubmitRegister}>
 
                     <label htmlFor="Register"> Registrar </label>
                     

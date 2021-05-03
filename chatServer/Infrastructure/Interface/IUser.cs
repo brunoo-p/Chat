@@ -5,7 +5,7 @@ namespace Chat.Infrastructure.Interface
 {
     public interface IUser
     {
-        Task<User> addUser(User user);
+        User addUser(User user);
         User login(string nickname, string password);
         
     }
