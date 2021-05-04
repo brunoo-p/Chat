@@ -2,12 +2,14 @@ import React, { useRef, useState } from 'react';
 import { Container, DotsSettings, SettingMenu, Content, UserImage, UserName } from './styles';
 import avatarDefault from '../../Assets/avatar.png'
 
-export default function UserDetails() {
+export default function UserDetails({setChat}) {
     
     const [ showMenu, setShowMenu ] = useState(false);
     const [ contactName, setContactName ] = useState('Nome Contato');
     const contactInput = useRef(null);
     
+    const KEYBOARD_ENTERCODE = 13;
+
     const settingOptions = [ 
         "Salvar Contato",
         "Limpar Conversa"
@@ -21,13 +23,16 @@ export default function UserDetails() {
         contactInput.current.focus();
         setShowMenu(false);
     }
+    const handleClearChat = () => {
+        setChat([]);
+        setShowMenu(false);
+    }
 
     const handleName = (event) => {
         
-        if(event.keyCode === 13){
+        if(event.keyCode === KEYBOARD_ENTERCODE){
             setContactName(event.target.value);
             contactInput.current.value = "";
-            
         }
     }
 
@@ -46,7 +51,7 @@ export default function UserDetails() {
                     <SettingMenu className={className} style={{height: settingOptions.length * 25}}>
                         <ul>
                             <li onClick={handleSaveContact}>Salvar Contato</li>
-                            <li>Limpar Conversa</li>
+                            <li onClick={handleClearChat}>Limpar Conversa</li>
                         </ul>
                     </SettingMenu>
                 </article>

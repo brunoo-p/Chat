@@ -90,7 +90,7 @@ export default function Chat() {
                 :
                 <Wrapper>
 
-                    <UserDetails/>
+                    <UserDetails setChat={setChat}/>
                     
                     <Content>
                         <ChatWindow chat={chat}/>
