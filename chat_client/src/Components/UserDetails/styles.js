@@ -32,7 +32,7 @@ export const Content = styled.div`
     position: absolute;
 `;
 
-export const Settings = styled(BiDotsVerticalRounded)`
+export const DotsSettings = styled(BiDotsVerticalRounded)`
     display: flex;
     width: 8%;
     height: 10%;
@@ -44,6 +44,42 @@ export const Settings = styled(BiDotsVerticalRounded)`
     
     :hover{
         background: linear-gradient(0.45turn, rgba(64, 115, 158, .3), rgba(253, 150, 68, .3));
+    }
+`;
+
+export const SettingMenu = styled.div`
+    //z-index: 2;
+    position: absolute;
+    width: 100px;
+    height: 120px;
+    margin-bottom: -180px;
+
+    color: rgb(6,6,6);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 10px;
+
+    background: rgba(34,200,122, 0.4);
+    filter: drop-shadow(0px 0px 1px rgba(240,240,240, .4));
+
+    li{
+        display: flex;
+        width: 110%;
+        background: rgba(34,200,122, 0.5);
+        padding: 4px;
+        margin-top: 2px;
+        margin-left: -8px;
+        list-style: none;
+        text-decoration-line: underline overline;
+        text-decoration-color: rgba(245,245,240, 0.8);
+        
+        cursor: pointer;
+
+        :hover{
+            background: rgba(34,200,122, 0.2);
+            text-decoration-color:rgba(64, 115, 158, .5); 
+        }
     }
 `;
 
