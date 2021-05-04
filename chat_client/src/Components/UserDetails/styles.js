@@ -53,6 +53,7 @@ export const SettingMenu = styled.div`
     width: 100px;
     height: 120px;
     margin-bottom: -180px;
+    align-items: center;
 
     color: rgb(6,6,6);
     font-size: 12px;
@@ -66,6 +67,8 @@ export const SettingMenu = styled.div`
     li{
         display: flex;
         width: 110%;
+        height: 20px;
+        align-items: center;
         background: rgba(34,200,122, 0.5);
         padding: 4px;
         margin-top: 2px;
