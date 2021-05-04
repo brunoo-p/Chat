@@ -8,6 +8,7 @@ export const Container = styled.div`
     align-items: center;
     transform: scale(1);
     transition: 0.3s ease-in;
+    font-family: Roboto, sans serif;
 
     border-radius:  10px;
     color: #CCC;
@@ -22,6 +23,28 @@ export const Container = styled.div`
         justify-content: flex-end;
         margin-top: 50px;
         background: red;
+    }
+
+    .contactName{
+        padding: 5px;
+        width: 200px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 900;
+
+        background: none;
+        border: none;
+        border-radius: 5px;
+        border-bottom: 2px solid rgba(64, 115, 158, .3);
+        
+        transition: 0.3s ease-in;
+        transform: translateY(-25px);
+
+        :focus{
+            outline: none;
+            background: rgba(34,200,122, 0.2);
+            border-bottom: 2px solid white;
+        }
     }
 
     :hover{
@@ -89,7 +112,6 @@ export const SettingMenu = styled.div`
         width: 110%;
         height: 20px;
         align-items: center;
-        //background: rgba(34,200,122, 0.5);
         padding: 4px;
         margin-top: 2px;
         margin-left: -8px;
