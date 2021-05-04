@@ -15,6 +15,14 @@ export const Container = styled.div`
     flex-direction: column;
     background: rgba(2,2,2,.5);
 
+    article{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: flex-end;
+        margin-top: 50px;
+        background: red;
+    }
 
     :hover{
         transform: scale(1.05);
@@ -30,6 +38,7 @@ export const Content = styled.div`
     justify-content: space-between;
     padding: 5px;
     position: absolute;
+    
 `;
 
 export const DotsSettings = styled(BiDotsVerticalRounded)`
@@ -48,12 +57,16 @@ export const DotsSettings = styled(BiDotsVerticalRounded)`
 `;
 
 export const SettingMenu = styled.div`
-    //z-index: 2;
+    display: flex;
     position: absolute;
     width: 100px;
-    height: 120px;
     margin-bottom: -180px;
     align-items: center;
+    opacity: 0;
+    z-index: -2;
+
+    transform: translateY(-100%);
+    transition: 0.5s ease-out;
 
     color: rgb(6,6,6);
     font-size: 12px;
@@ -64,12 +77,19 @@ export const SettingMenu = styled.div`
     background: rgba(34,200,122, 0.4);
     filter: drop-shadow(0px 0px 1px rgba(240,240,240, .4));
 
+    &.open{
+        opacity: 1;
+        z-index: 0;  
+        transform: translateY(0);
+        transition: 0.5s ease-out;
+    }
+
     li{
         display: flex;
         width: 110%;
         height: 20px;
         align-items: center;
-        background: rgba(34,200,122, 0.5);
+        //background: rgba(34,200,122, 0.5);
         padding: 4px;
         margin-top: 2px;
         margin-left: -8px;

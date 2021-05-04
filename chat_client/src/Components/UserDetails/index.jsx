@@ -12,9 +12,10 @@ export default function UserDetails() {
     ]
 
     const handleMenu = () => {
-        setShowMenu(!showMenu);
+        setShowMenu(!showMenu);   
     }
 
+    let className = showMenu ? 'open' : '';
     return (
         <Container>
             <Content>
@@ -22,14 +23,16 @@ export default function UserDetails() {
                 <UserName> Nome usuário</UserName>
 
                 <DotsSettings onClick={handleMenu}/>
-                <SettingMenu style={{display: showMenu ? 'flex' : 'none', height: settingOptions.length * 25}}>
-                    <ul>
-                       <li>Adicionar Contato</li>
-                       <li>Limpar Conversa</li>
-                    </ul>
-                </SettingMenu>
             
             </Content>
+                <article>
+                    <SettingMenu className={className} style={{height: settingOptions.length * 25}}>
+                        <ul>
+                            <li>Adicionar Contato</li>
+                            <li>Limpar Conversa</li>
+                        </ul>
+                    </SettingMenu>
+                </article>
         </Container>
     )
 }
