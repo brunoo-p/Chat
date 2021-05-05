@@ -8,10 +8,11 @@ export default function Chat() {
 
     const [ connection, setConnection ] = useState(null);
     const [ chat, setChat ] = useState([]);
-    const [ user, setUser ] = useState('Desconhecido');
-    const [ id, setId ] = useState();
-    const [ showPortal, setShowPortal ] = useState(false);
-    
+    const [ user, setUser ] = useState("Desconhecido");
+    const [ id, setId ] = useState('');
+    const [ showPortal, setShowPortal ] = useState(true);
+    const myUser = user;
+
     const latestChat = useRef(null);
 
     latestChat.current = chat;
@@ -67,7 +68,6 @@ export default function Chat() {
                 try {
 
                     await connection.send('SendPrivateMessage', chatMessage);
-                    //await api.post("/chat/message", JSON.stringify(chatMessage));
                 }
                 catch(e) {
                     console.log(e);
@@ -77,15 +77,13 @@ export default function Chat() {
                 alert('No connection to server yet.');
             }
         } 
-        
-    let contato = user === 'maisa' ? 'Bruno Lindão' : 'Nome contato';
 
     return (
         <Container>
             {showPortal ? 
                 
                 <Portal>
-                    <Nickname setId={setId} setUser={setUser} setShowPortal={setShowPortal}/>
+                    <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
                 </Portal>
                 :
                 <Wrapper>
@@ -93,7 +91,7 @@ export default function Chat() {
                     <UserDetails setChat={setChat}/>
                     
                     <Content>
-                        <ChatWindow chat={chat}/>
+                        <ChatWindow chat={chat} myUser={myUser}/>
                         <ChatInput sendMessage={sendMessage} />
                     </Content>
                 

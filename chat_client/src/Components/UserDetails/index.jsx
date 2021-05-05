@@ -5,7 +5,7 @@ import avatarDefault from '../../Assets/avatar.png'
 export default function UserDetails({setChat}) {
     
     const [ showMenu, setShowMenu ] = useState(false);
-    const [ contactName, setContactName ] = useState('Nome Contato');
+    const [ contactName, setContactName ] = useState('Nome do Contato');
     const contactInput = useRef(null);
     
     const KEYBOARD_ENTERCODE = 13;
@@ -39,7 +39,7 @@ export default function UserDetails({setChat}) {
     let className = showMenu ? 'open' : '';
     return (
         <Container>
-            <input id="contactName" className="contactName" type="text" onKeyDown={handleName} ref={contactInput}/>
+            <input id="contactName" className="contactName" onKeyDown={handleName} ref={contactInput}/>
             <Content>
                 <UserImage src={avatarDefault}/>
                 <UserName>{contactName}</UserName>

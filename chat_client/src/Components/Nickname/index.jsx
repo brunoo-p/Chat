@@ -3,7 +3,7 @@ import api from '../../Services/api';
 
 import { Container, Form } from './styles';
 
-export default function Nickname({setUser, setShowPortal}) {
+export default function Nickname({setUser, setId, setShowPortal}) {
     
     const [ login, setLogin ] = useState(false);
     const [name, setName ] = useState('');
@@ -30,8 +30,10 @@ export default function Nickname({setUser, setShowPortal}) {
             setPassword("");
 
         }else{
-            
-            setUser(response.data.nickname);
+            const { id, nickname } = response.data;
+            setUser( nickname );
+            setId( id );
+
             setShowPortal(false);
         }
     }
