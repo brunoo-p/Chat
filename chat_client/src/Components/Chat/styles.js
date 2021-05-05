@@ -8,12 +8,12 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     
+    background: rgb(6,6,6);
     background: url(${fundo});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
-    //background: #7d5fff;
     font-family: 'Roboto', sans serif;
 `;
 

@@ -64,8 +64,8 @@ export default function Nickname({setUser, setId, setShowPortal}) {
                 <Form onSubmit={handleSubmitLogin}>
                     <label htmlFor="Login"> Faça Login </label>
 
-                    <input type="text" name="nickname" placeholder="Seu usuário" value={nickname} onChange={handleNickName}/>
-                    <input type="password" name="password" placeholder="Senha" value={password} onChange={handlePass}/>
+                    <input type="text" name="nickname" placeholder="Seu usuário" value={nickname} onChange={handleNickName} required/>
+                    <input type="password" name="password" placeholder="Senha" value={password} onChange={handlePass} required/>
                     
                     <input type="submit" value="Entrar" className="btnSubmit" onSubmit={handleSubmitLogin}/>
                 </Form>
@@ -79,9 +79,9 @@ export default function Nickname({setUser, setId, setShowPortal}) {
 
                     <label htmlFor="Register"> Registrar </label>
                     
-                    <input type="name" name="registerName" placeholder="Seu Nome" value={name} onChange={(event) => setName(event.target.value)}/>
-                    <input type="text" name="registerNickname" placeholder="Nome de usuário" value={nickname} onChange={(event) => setNickname(event.target.value)}/>
-                    <input type="password" name="registerPass" placeholder="Senha de acesso" value={password} onChange={(event) => setPassword(event.target.value)}/>
+                    <input type="name" name="registerName" placeholder="Seu Nome" value={name} onChange={(event) => setName(event.target.value)} required/>
+                    <input type="text" name="registerNickname" placeholder="Nome de usuário" value={nickname} onChange={(event) => setNickname(event.target.value)} required/>
+                    <input type="password" name="registerPass" placeholder="Senha de acesso" value={password} onChange={(event) => setPassword(event.target.value)} required/>
                     
                     <input type="submit" value="Registrar" className="btnSubmit" onSubmit={handleSubmitLogin}/>
                 
