@@ -25,7 +25,7 @@ export const Wrapper = styled.aside`
     padding: 70px;
     border-radius: 20px;
     background: rgba(4,4,4,.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
     align-items: center;
     justify-content: space-around;
 `;
