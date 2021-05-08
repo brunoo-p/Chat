@@ -6,6 +6,7 @@ export const Container = styled.div`
     height: 50px;
     display: flex;
     align-items: center;
+    max-width: 400px;
     transform: scale(1);
     transition: 0.3s ease-in;
     font-family: Roboto, sans serif;
@@ -98,7 +99,7 @@ export const SettingMenu = styled.div`
     border-radius: 10px;
 
     background: rgba(34,200,122, 0.4);
-    filter: drop-shadow(0px 0px 1px rgba(240,240,240, .4));
+    filter: drop-shadow(0px 0px 1px rgba(240,240,240, .6));
 
     &.open{
         opacity: 1;

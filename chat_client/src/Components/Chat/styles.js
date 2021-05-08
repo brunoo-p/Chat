@@ -20,8 +20,7 @@ export const Container = styled.div`
 export const Wrapper = styled.aside`
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
     height: 70%;
     align-items: center;
     justify-content: space-around;
@@ -30,6 +29,7 @@ export const Wrapper = styled.aside`
 export const Content = styled.div`
     display: flex;
     width: 100%;
+    max-width: 400px;
     height: 80%;
     overflow: hidden;
     flex-direction: column;
