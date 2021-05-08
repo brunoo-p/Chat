@@ -106,6 +106,7 @@ export const SettingMenu = styled.div`
         z-index: 0;  
         transform: translateY(0);
         transition: 0.5s ease-out;
+        backdrop-filter: blur(10px);
     }
 
     li{

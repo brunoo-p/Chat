@@ -20,8 +20,12 @@ export const Container = styled.div`
 export const Wrapper = styled.aside`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 87%;
     height: 70%;
+    padding: 70px;
+    border-radius: 20px;
+    background: rgba(4,4,4,.1);
+    backdrop-filter: blur(10px);
     align-items: center;
     justify-content: space-around;
 `;
@@ -31,6 +35,7 @@ export const Content = styled.div`
     width: 100%;
     max-width: 400px;
     height: 80%;
+    max-height: 400px;
     overflow: hidden;
     flex-direction: column;
     align-items: center;
