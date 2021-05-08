@@ -83,8 +83,8 @@ export const SettingMenu = styled.div`
     display: flex;
     position: absolute;
     width: 100px;
-    margin-bottom: -180px;
     align-items: center;
+    justify-content: center;
     opacity: 0;
     z-index: -2;
 
@@ -129,7 +129,7 @@ export const SettingMenu = styled.div`
 `;
 
 export const UserImage = styled.div`
-    display> flex;
+    display: flex;
     width: 40px;
     height: 40px;
     cursor: pointer;

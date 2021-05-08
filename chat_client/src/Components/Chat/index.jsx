@@ -88,7 +88,7 @@ export default function Chat() {
                 :
                 <Wrapper>
 
-                    <UserDetails setChat={setChat}/>
+                    <UserDetails setShowPortal={setShowPortal} setChat={setChat}/>
                     
                     <Content>
                         <ChatWindow chat={chat} myUser={myUser}/>

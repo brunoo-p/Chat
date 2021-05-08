@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Container, DotsSettings, SettingMenu, Content, UserImage, UserName } from './styles';
 import avatarDefault from '../../Assets/avatar.png'
 
-export default function UserDetails({setChat}) {
+export default function UserDetails({setShowPortal, setChat}) {
     
     const [ showMenu, setShowMenu ] = useState(false);
     const [ contactName, setContactName ] = useState('Nome do Contato');
@@ -12,7 +12,8 @@ export default function UserDetails({setChat}) {
 
     const settingOptions = [ 
         "Salvar Contato",
-        "Limpar Conversa"
+        "Limpar Conversa",
+        "Sair"
     ]
 
     const handleMenu = () => {
@@ -36,6 +37,13 @@ export default function UserDetails({setChat}) {
         }
     }
 
+    const exitConversation = () => {
+        handleClearChat();
+        setTimeout(() => {
+            setShowPortal(true);
+        }, 500);
+    }
+
     let className = showMenu ? 'open' : '';
     return (
         <Container>
@@ -52,6 +60,7 @@ export default function UserDetails({setChat}) {
                         <ul>
                             <li onClick={handleSaveContact}>Salvar Contato</li>
                             <li onClick={handleClearChat}>Limpar Conversa</li>
+                            <li onClick={exitConversation}>Sair</li>
                         </ul>
                     </SettingMenu>
                 </article>
