@@ -31,12 +31,6 @@ namespace Chat.Domain.Repositories
             }
 
             return finded;
-            
-            // var user = new User(
-            //     name: "Bruno Paulino",
-            //     nickname: "brunoo-p",
-            //     password: "blabla"
-            // );
         }
     }
 }
