@@ -64,8 +64,8 @@ export default function Nickname({setUser, setId, setShowPortal}) {
                 <Form onSubmit={handleSubmitLogin}>
                     <label htmlFor="Login"> Faça Login </label>
 
-                    <input type="text" name="nickname" placeholder="Seu usuário" value={nickname} onChange={handleNickName} required/>
-                    <input type="password" name="password" placeholder="Senha" value={password} onChange={handlePass} required/>
+                    <input type="text" name="nickname" placeholder="Seu usuário" value={nickname} onChange={handleNickName} className="inputLogin" required/>
+                    <input type="password" name="password" placeholder="Senha" value={password} onChange={handlePass} className="inputLogin" required/>
                     
                     <input type="submit" value="Entrar" className="btnSubmit" onSubmit={handleSubmitLogin}/>
                 </Form>

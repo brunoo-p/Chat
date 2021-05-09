@@ -67,6 +67,9 @@ export const Form = styled.form`
             border: 1px solid rgb(73,63,201);
         }
     }
+    .inputLogin{
+        text-align: center;
+    }
 
     .btnSubmit{
         cursor: pointer;
