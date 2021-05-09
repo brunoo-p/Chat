@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import { ChatInput, ChatWindow, Portal, Nickname, UserDetails } from '..';
-import { Container, Wrapper, Content, Contact } from './styles';
-import api from '../../Services/api';
+import { Container, Wrapper, Content } from './styles';
+//import api from '../../Services/api';
 
 export default function Chat() {
 

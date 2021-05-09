@@ -150,7 +150,10 @@ export const UserName = styled.span`
     display: flex;
     margin-left: 30px;
     font-familly: Roboto, sans serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 
+    @media(min-width: 1024px){
+        font-size: 20px;
+    }
 `;

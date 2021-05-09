@@ -15,7 +15,7 @@ namespace Chat.Domain.Repositories
             if(isExist != null){
                 return null;
             }
-
+    
             list.Add(user);
             return user;
         }
