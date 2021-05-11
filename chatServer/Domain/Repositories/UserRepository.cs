@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Chat.Infrastructure.Entities;
 using Chat.Infrastructure.Interface;
 

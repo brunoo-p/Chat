@@ -72,6 +72,7 @@ export const DotsSettings = styled(BiDotsVerticalRounded)`
     justify-content: flex-end;
     
     padding: 1px;
+    margin-left: 15px;
     border-radius: 7px;
     cursor: pointer;
     
@@ -148,7 +149,6 @@ export const UserImage = styled.div`
 
 export const UserName = styled.span`
     display: flex;
-    margin-left: 30px;
     font-familly: Roboto, sans serif;
     font-size: 18px;
     font-weight: 700;
