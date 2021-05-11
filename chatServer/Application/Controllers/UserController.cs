@@ -17,7 +17,7 @@ namespace Chat.Application.Controllers
             _repository = repository;
         }
 
-        [EnableCors("Client")]
+        //[EnableCors("Client")]
         [HttpPost]
         public ActionResult<User> addUser(User newUser)
         {
@@ -37,7 +37,7 @@ namespace Chat.Application.Controllers
             }
         }
 
-        [EnableCors("Client")]
+        //[EnableCors("Client")]
         [HttpPost]
         [Route("login")]
         public ActionResult<User> login(string nickname, string password)
