@@ -15,14 +15,16 @@ export default function ChatWindow({chat, myUser}) {
             }, 300);
           });
         }
-      }, [])
+    }, []);
 
     const conversa = chat.map(msg =>
         <Message key={Date.now() * Math.random()}
         user={msg.user}
         message={msg.message}
+        date={msg.date}
         myUser={myUser}/>
     );
+
         
     return (
         <Container ref={messageElement}>

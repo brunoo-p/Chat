@@ -9,7 +9,7 @@ export default function Chat() {
     const [ connection, setConnection ] = useState(null);
     const [ chat, setChat ] = useState([]);
     const [ user, setUser ] = useState("Desconhecido");
-    const [ id, setId ] = useState('');
+    const [ _, setId ] = useState('');
     const [ showPortal, setShowPortal ] = useState(true);
     const myUser = user;
 
@@ -31,13 +31,14 @@ export default function Chat() {
              
             (async () => {
 
-                if (connection) {
+                if(connection) {
                     await connection.start();
                     console.log('Connected!');
                     
                     try{
+
                         connection.on('ReceivePrivateMessage', (message) => {
-                            console.log(message);
+                            console.log("message", message);
                             const updatedChat = [...latestChat.current];
                             updatedChat.push(message);
                             
@@ -57,10 +58,14 @@ export default function Chat() {
         }, [connection]);
 
         const sendMessage = async (message) => {
-            console.log(chat);
+
+            const d = new window.Date();
+            let date = d.getHours() + ":" + d.getMinutes();
+            
             const chatMessage = {
                 user,
                 message,
+                date
             };
             
     
@@ -74,7 +79,7 @@ export default function Chat() {
                 }
             }
             else {
-                alert('No connection to server yet.');
+                alert('Conexão não estabelecida.');
             }
         } 
 

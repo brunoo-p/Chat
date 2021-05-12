@@ -1,16 +1,14 @@
 import React from 'react';
-import { Container, Content, User, Text, Date } from './styles';
+import { Container, Content, Text, Date } from './styles';
 
-function Message({user, message, myUser}) {
+function Message({user, message, date, myUser}) {
 
-    const d = new window.Date();
-    let date = d.getHours() + ":" + d.getMinutes();
     let side = user === myUser ? 'flex-end' : 'flex-start';
-    let bg = user === myUser && 'rgb(46, 213, 115, 0.8)';
+    let background = user === myUser && 'rgb(46, 213, 115, 0.8)';
 
     return (
         <Container style={{justifyContent: side}}>
-            <Content style={{backgroundColor: bg}}>
+            <Content style={{backgroundColor: background}}>
             {/* <Text>{user}: </Text> */}
             <Text >{message}</Text>
             <Date>{date}</Date>
