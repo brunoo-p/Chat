@@ -25,8 +25,8 @@ export const Text = styled.div`
 
 export const Date = styled.div`
     font-size: 10px;
-    color: rgb(119, 140, 163);
-    font-weight: 700;
+    color: #57606f;
+    font-weight: 500;
     margin-right: 5px;
     text-align: right;f
     height: 15px;

@@ -38,8 +38,10 @@ export default function Chat() {
                     try{
 
                         connection.on('ReceivePrivateMessage', (message) => {
+
                             console.log("message", message);
                             const updatedChat = [...latestChat.current];
+
                             updatedChat.push(message);
                             
                             
@@ -61,13 +63,13 @@ export default function Chat() {
 
             const d = new window.Date();
             let date = d.getHours() + ":" + d.getMinutes();
-            
+
             const chatMessage = {
                 user,
                 message,
                 date
             };
-            
+
     
             if (connection.connectionStarted) {
                 try {

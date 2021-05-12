@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaMicrophoneAlt } from 'react-icons/fa';
 
 export const Form = styled.form`
     margin: 0;
@@ -38,34 +39,59 @@ export const WriteMessage = styled.div`
     border-radius: 15px;
     justify-content: space-between;
     padding: 5px;
+`;
+export const SendMessage = styled.button`
+    width: 80px;
 
-    .inputSubmit{
-        width: 80px;
-        margin-left: 10px;
-        padding: 5px;
-        cursor: pointer;
-        background: transparent;
-        border: 2px solid rgb(64, 115, 158, .7);
-        color: #353b48;
-        font-size: 15px;
-        font-weight: 700;
-        position: relative; 
-    }
+
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: 5px;
+    
+    cursor: pointer;
+    
+    background: transparent;
+    border: 2px solid #60a3bc;
+    border-radius: 8px;
+    color: #353b48;
+    
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
     
     ::before {
-        content: '';
+        content: "";
         position: absolute;
-        margin-left: 327px;
+
+        margin-left: -7px;
         border-radius: 5px;
-        margin-top: 7px;
+        margin-top: -12px;
         background: linear-gradient(0.45turn, rgba(64, 115, 158, .7), rgba(253, 150, 68, .5));
-        width: 0;
+        width: 0px;
         height: 41px;
-        transition: .3s ease-in;
+        color: #60a3bc;
+        transition: .2s ease-in;
     }
 
-    :hover::before{
+    &:hover::before{
         width: 61px;
     }
 
+`;
+
+export const MicIcon = styled(FaMicrophoneAlt)`
+    width: 28px; 
+    height: 28px;
+    margin: 15px 5px 0 10px;
+    padding: 0 10px;
+
+    cursor: pointer;
+    transition: 0.2s ease-in;
+
+    :hover{
+        color: #60a3bc;
+    }
+    :focus{
+        color: #60a3bc;
+    }
 `;

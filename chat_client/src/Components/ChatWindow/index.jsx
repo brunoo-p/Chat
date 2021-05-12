@@ -17,6 +17,7 @@ export default function ChatWindow({chat, myUser}) {
         }
     }, []);
 
+
     const conversa = chat.map(msg =>
         <Message key={Date.now() * Math.random()}
         user={msg.user}
