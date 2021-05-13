@@ -89,7 +89,6 @@ export default function Nickname({setUser, setId, setShowPortal}) {
                 <p onClick={() => setLogin(true)}>Ir para Login</p>
             </>
             }
-            
         </Container>
     )
 }

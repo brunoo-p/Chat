@@ -1,5 +1,6 @@
 import { Chat } from './Components';
-import { Reset } from 'styled-reset'
+import { Reset } from 'styled-reset';
+
 
 function App() {
   return (

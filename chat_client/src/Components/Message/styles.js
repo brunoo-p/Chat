@@ -12,6 +12,7 @@ export const Content = styled.div`
     padding: 3px;
     max-width: 90%;
     word-wrap: break-word;
+    margin: none;
 
     background-color: #FFF;
     border-radius: 10px;
@@ -21,11 +22,12 @@ export const Content = styled.div`
 export const Text = styled.div`
     font-size 14px;
     margin: 5px 40px 5px 5px;
+    color: #222;
 `;
 
 export const Date = styled.div`
     font-size: 10px;
-    color: #57606f;
+    color: ${({ theme }) => theme.textDate};
     font-weight: 500;
     margin-right: 5px;
     text-align: right;f

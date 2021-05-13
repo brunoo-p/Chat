@@ -23,10 +23,12 @@ export const Form = styled.form`
         font-size: 15px;
         font-weight: 700;
         transition: 0.3s ease-out;
+        color: ${({theme}) => theme.text};
+        letter-spacing: 1px;
 
         :focus{
-            background: rgba(64, 74, 168, .2);
-            border: 2px solid rgb(64, 115, 198);
+            background: rgba(64, 74, 168,.2);
+            border: 2px solid ${({theme}) => theme.borderInput};
         }
     }
     
@@ -53,7 +55,7 @@ export const SendMessage = styled.button`
     background: transparent;
     border: 2px solid #60a3bc;
     border-radius: 8px;
-    color: #353b48;
+    color: ${({theme}) => theme.text};
     
     font-size: 15px;
     font-weight: 700;
@@ -63,7 +65,7 @@ export const SendMessage = styled.button`
         content: "";
         position: absolute;
 
-        margin-left: -7px;
+        margin-left: -8px;
         border-radius: 5px;
         margin-top: -12px;
         background: linear-gradient(0.45turn, rgba(64, 115, 158, .7), rgba(253, 150, 68, .5));
@@ -90,6 +92,7 @@ export const MicIcon = styled(FaMicrophoneAlt)`
 
     :hover{
         color: #60a3bc;
+        backdrop-filter: drop-shadow(1px 0 5px blue);
     }
     :focus{
         color: #60a3bc;
