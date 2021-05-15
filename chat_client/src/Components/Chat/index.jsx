@@ -115,7 +115,7 @@ export default function Chat() {
                     :
                     <Wrapper>
                         
-                        { theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> }
+                        <React.Fragment className="toggle">{ theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> } </React.Fragment>
                         
                         <UserDetails setShowPortal={setShowPortal} setChat={setChat}/>
                         
