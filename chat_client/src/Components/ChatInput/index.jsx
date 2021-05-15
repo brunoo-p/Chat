@@ -32,10 +32,9 @@ export default function ChatInput({sendMessage}) {
 
     const onMessageUpdate = ({target}) => {
         setMessage(target.value);
-
     };
 
-    const handleMic = (e) => {
+    const handleMic = () => {
 
         if(recognition !== null){
 
@@ -45,7 +44,7 @@ export default function ChatInput({sendMessage}) {
             recognition.onend = () => {
                 setListening(false);
             }
-            recognition.onresult = () => {
+            recognition.onresult = (e) => {
                 setMessage( e.results[0][0].transcript );
             }
 

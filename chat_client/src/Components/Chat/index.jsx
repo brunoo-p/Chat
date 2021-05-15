@@ -6,6 +6,7 @@ import {ThemeProvider} from 'styled-components';
 import { lightTheme, darkTheme } from '../../theme';
 
 import { Container, ToggleLight, ToggleDark, Wrapper, Content } from './styles';
+
 //import api from '../../Services/api';
 
 export default function Chat() {
@@ -16,7 +17,7 @@ export default function Chat() {
     const [ _, setId ] = useState('');
 
     const [ theme, setTheme ] = useState('light');
-    const [ showPortal, setShowPortal ] = useState(true);
+    const [ showPortal, setShowPortal ] = useState(false);
     const myUser = user;
 
     const latestChat = useRef(null);
@@ -74,10 +75,10 @@ export default function Chat() {
             let date = hours + ":" + minutes;
             
                 const chatMessage = {
-                user,
-                message,
-                date
-            };
+                    user,
+                    message,
+                    date
+                };
 
     
             if (connection.connectionStarted) {
