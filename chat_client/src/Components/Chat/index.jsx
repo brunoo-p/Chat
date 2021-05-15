@@ -17,7 +17,7 @@ export default function Chat() {
     const [ _, setId ] = useState('');
 
     const [ theme, setTheme ] = useState('light');
-    const [ showPortal, setShowPortal ] = useState(false);
+    const [ showPortal, setShowPortal ] = useState(true);
     const myUser = user;
 
     const latestChat = useRef(null);
@@ -105,14 +105,16 @@ export default function Chat() {
 
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-            <Container>
-                
-                {showPortal ? 
+            
+            {showPortal ? 
                     
-                    <Portal>
-                        <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
-                    </Portal>
-                    :
+                <Portal>
+                    <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
+                </Portal>
+
+            :
+
+                <Container>
                     <Wrapper>
                         
                         <React.Fragment className="toggle">{ theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> } </React.Fragment>
@@ -125,8 +127,8 @@ export default function Chat() {
                         </Content>
                     
                     </Wrapper>   
-                }
-            </Container>
+                </Container>
+            }
         </ThemeProvider>
     )
 }
