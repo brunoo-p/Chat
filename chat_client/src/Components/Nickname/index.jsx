@@ -5,12 +5,12 @@ import { Container, Form } from './styles';
 
 export default function Nickname({setUser, setId, setShowPortal}) {
     
-    const [ login, setLogin ] = useState<Boolean>(false);
-    const [ isLegged, setIsLogged ] = useState<Boolean>(false);
+    const [ login, setLogin ] = useState(false);
+    const [ isLegged, setIsLogged ] = useState(false);
     
-    const [name, setName ] = useState<String>('');
-    const [nickname, setNickname ] = useState<String>('');
-    const [password, setPassword ] = useState<String>('');
+    const [name, setName ] = useState('');
+    const [nickname, setNickname ] = useState('');
+    const [password, setPassword ] = useState('');
 
 
     useEffect(() => {

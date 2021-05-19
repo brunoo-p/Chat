@@ -13,11 +13,11 @@ export default function Chat() {
 
     const [ connection, setConnection ] = useState(null);
     const [ chat, setChat ] = useState([]);
-    const [ user, setUser ] = useState<String>("Desconhecido");
-    const [ _, setId ] = useState<Number>(null);
+    const [ user, setUser ] = useState("Desconhecido");
+    const [ _, setId ] = useState(null);
 
-    const [ theme, setTheme ] = useState<String>('light');
-    const [ showPortal, setShowPortal ] = useState<Boolean>(true);
+    const [ theme, setTheme ] = useState('light');
+    const [ showPortal, setShowPortal ] = useState(false);
     const myUser = user;
 
     const latestChat = useRef(null);

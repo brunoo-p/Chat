@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, memo } from 'react';
 import { Container, DotsSettings, SettingMenu, Content, UserImage, UserName } from './styles';
 import avatarDefault from '../../Assets/avatar.png'
 
-export default function UserDetails({setShowPortal, setChat}) {
+function UserDetails({setShowPortal, setChat}) {
     
-    const [ showMenu, setShowMenu ] = useState<Boolean>(false);
-    const [ contactName, setContactName ] = useState<String>('Nome do Contato');
+    const [ showMenu, setShowMenu ] = useState(false);
+    const [ contactName, setContactName ] = useState('Nome do Contato');
     const contactInput = useRef(null);
     
     const KEYBOARD_ENTERCODE = 13;
@@ -71,3 +71,5 @@ export default function UserDetails({setShowPortal, setChat}) {
         </Container>
     )
 }
+
+export default memo(UserDetails);

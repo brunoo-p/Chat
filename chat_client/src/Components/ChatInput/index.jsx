@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useReactMediaRecorder } from "react-media-recorder";
 import EmojiPicker, { SKIN_TONE_MEDIUM_LIGHT } from 'emoji-picker-react';
 import { Form, WriteMessage, EmojiArea, CloseEmojiPicker, OpenEmojiPick, MicIcon, RecordIcon, SendMessage } from './styles';
 
 
-export default function ChatInput({sendMessage}) {
+function ChatInput({sendMessage}) {
 
 
     let recognition = null;
@@ -22,9 +22,9 @@ export default function ChatInput({sendMessage}) {
         mediaBlobUrl
     } = useReactMediaRecorder({ video: false });
     
-    const [ message, setMessage ] = useState<String>('');
-    const [ listening, setListening ] = useState<Boolean>(false);
-    const [ sendEmoji, setSendEmoji ] = useState<Boolean>(false);
+    const [ message, setMessage ] = useState('');
+    const [ listening, setListening ] = useState(false);
+    const [ sendEmoji, setSendEmoji ] = useState(false);
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -135,3 +135,5 @@ export default function ChatInput({sendMessage}) {
         </>
     )
 }
+
+export default memo(ChatInput);
