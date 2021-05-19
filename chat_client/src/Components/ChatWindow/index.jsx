@@ -7,6 +7,7 @@ export default function ChatWindow({chat, myUser}) {
 
     useEffect(() => {
         if (messageElement) {
+            
             messageElement.current.addEventListener('DOMNodeInserted', event => {
             const { currentTarget: target } = event;
             setTimeout(() => {

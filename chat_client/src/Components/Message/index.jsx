@@ -15,7 +15,7 @@ function Message({user, message, date, myUser}) {
             let audio = document.querySelector('#audio');
             audio.play();
         }
-    }, [message]);
+    }, [message, user]);
 
     return (
         <Container style={{justifyContent: side}}>
@@ -26,8 +26,7 @@ function Message({user, message, date, myUser}) {
                 <Date>{date}</Date>
 
             </Content>
-
-            <audio id="audio" src={msg}></audio>
+            
         </Container>
     )
 }

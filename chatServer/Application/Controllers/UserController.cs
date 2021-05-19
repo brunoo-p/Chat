@@ -29,6 +29,8 @@ namespace Chat.Application.Controllers
                     return StatusCode(203, "Este usuário ja está sendo usado.");
                 }
 
+                user.Password = "*";
+
                 return StatusCode(200, user);
 
             }catch(Exception err){

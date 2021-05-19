@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useReactMediaRecorder } from "react-media-recorder";
 import EmojiPicker, { SKIN_TONE_MEDIUM_LIGHT } from 'emoji-picker-react';
-import { Form, WriteMessage, EmojiArea, CloseEmojiPicker, OpenEmojiPick, MicIcon, SendMessage } from './styles';
+import { Form, WriteMessage, EmojiArea, CloseEmojiPicker, OpenEmojiPick, MicIcon, RecordIcon, SendMessage } from './styles';
 
 
 export default function ChatInput({sendMessage}) {
@@ -8,13 +9,22 @@ export default function ChatInput({sendMessage}) {
 
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
     if(SpeechRecognition !== undefined){
         recognition = new SpeechRecognition();
+        recognition.lang = 'pt-BR';
     }
 
-    const [message, setMessage ] = useState('');
-    const [ linstening, setListening ] = useState(false);
-    const [ sendEmoji, setSendEmoji ] = useState(false);
+    const {
+        startRecording,
+        stopRecording,
+        clearBlobUrl,
+        mediaBlobUrl
+    } = useReactMediaRecorder({ video: false });
+    
+    const [ message, setMessage ] = useState<String>('');
+    const [ listening, setListening ] = useState<Boolean>(false);
+    const [ sendEmoji, setSendEmoji ] = useState<Boolean>(false);
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -32,30 +42,52 @@ export default function ChatInput({sendMessage}) {
 
     const onMessageUpdate = ({target}) => {
         setMessage(target.value);
+
     };
 
-    const handleMic = () => {
-
-        if(recognition !== null){
-
-            recognition.onstart = () => {
-                setListening(true);
-            }
-            recognition.onend = () => {
-                setListening(false);
-            }
-            recognition.onresult = (e) => {
-                setMessage( e.results[0][0].transcript );
-            }
-
-            recognition.start();
-        }else{
-            console.log("nao deu");
+    const handleMic = (event) => {
+        console.log(event.type);
+        console.log(event);
+        
+        if(event.type === "mousedown"){
+            console.log(event.type);
+            setListening(true);
+            startRecording();
         }
+
+        // if(recognition !== null){
+
+        //     recognition.onstart = () => {
+        //         setListening(true);
+        //     }
+        //     recognition.onend = () => {
+        //         setListening(false);
+        //     }
+        //     recognition.onresult = (event) => {
+        //         setMessage( event.results[0][0].transcript );
+        //     }
+
+        //     recognition.start();
+        // }else{
+        //     console.log("nao deu");
+        // }
+    }
+
+    const handleStop = () => {
+        stopRecording();
+        
+        setListening(false);
+        let blob = mediaBlobUrl
+
+        console.log(typeof(mediaBlobUrl));
+        console.log(blob);
+
+        sendMessage(mediaBlobUrl);
+        
+        clearBlobUrl();
     }
 
     const onEmojiClick = (event, emojiObject ) => {
-        console.log(emojiObject.emoji);
         setMessage(message + emojiObject.emoji);
     }
 
@@ -79,8 +111,24 @@ export default function ChatInput({sendMessage}) {
         <Form onSubmit={onSubmit}> 
 
             <WriteMessage>
-                <input type="text" name="message" className="inputMessage" placeholder="Digite a menssagem"value={message}onChange={onMessageUpdate}/>
-                {message.length > 0 ? <SendMessage>Enviar</SendMessage> : <MicIcon onClick={ handleMic } style={{color: linstening && '#60a3bc' }}/>}
+                <input type="text" name="message" className="inputMessage"
+                    placeholder="Digite a menssagem" 
+                    value={message}
+                    onChange={onMessageUpdate}
+                    style={{width: listening ? 0 : '100%', transform: listening && 'translateX(-150%)'}}
+                />
+
+                <audio className="inputAudio" src={mediaBlobUrl} style={{width: listening ? '100%' : 0}} controls />
+                <label className="stopRecord" style={{display: !listening && 'none', width: !listening && 0}} onClick={handleStop}> X </label>
+
+                {message.length > 0 ?
+                    <SendMessage>Enviar</SendMessage>
+                    :
+                    <>
+                    <MicIcon onMouseDown={ handleMic } style={{color: listening && '#60a3bc' }}/>
+                    <RecordIcon style={{width: listening && 10}} />
+                    </> 
+                }
             </WriteMessage>
             
         </Form>

@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import api from '../../Services/api';
 
 import { Container, Form } from './styles';
 
 export default function Nickname({setUser, setId, setShowPortal}) {
     
-    const [ login, setLogin ] = useState(false);
-    const [name, setName ] = useState('');
-    const [nickname, setNickname ] = useState('');
-    const [password, setPassword ] = useState('');
+    const [ login, setLogin ] = useState<Boolean>(false);
+    const [ isLegged, setIsLogged ] = useState<Boolean>(false);
+    
+    const [name, setName ] = useState<String>('');
+    const [nickname, setNickname ] = useState<String>('');
+    const [password, setPassword ] = useState<String>('');
 
+
+    useEffect(() => {
+        let storage = JSON.parse(localStorage.getItem("user"));
+
+        if(storage !== null){
+            setShowPortal(false);
+        }
+    }, []);
 
     const handleNickName = (event) =>{
         setNickname((event.target.value).toLowerCase());
@@ -33,32 +43,51 @@ export default function Nickname({setUser, setId, setShowPortal}) {
             const { id, nickname } = response.data;
             setUser( nickname );
             setId( id );
+            localStorage.setItem("user", JSON.stringify(nickname, id));
 
-            setShowPortal(false);
+            setIsLogged(true);
+            
+            setTimeout(() => {
+
+                setShowPortal(false);
+            }, 450);
         }
     }
 
     const handleSubmitLogin = async (event) => {
         event.preventDefault();
-        const USERFINDED = 200;
+//         const USERFINDED = 200;
 
-        const response = await api.post(`/user/login?nickname=${nickname}&password=${password}`);
-        console.log(response);
+//         const response = await api.post(`/user/login?nickname=${nickname}&password=${password}`);
+//         console.log(response);
 
-        if(response.status !== USERFINDED)
-        {
-            alert("Nickname or password invalids.");
-            setNickname("");
-            setPassword("");
+//         if(response.status !== USERFINDED)
+//         {
+//             alert("Nickname or password invalids.");
+//             setNickname("");
+//             setPassword("");
             
-        }else{
+//         }else{
 
-            setShowPortal(false);
-        }
+//             setShowPortal(false);
+//         }
+        
+        setUser( nickname );
+        setId( Math.floor(Math.random() * 256));
+
+        localStorage.setItem("user", JSON.stringify(nickname));
+        
+        setIsLogged(true);
+            
+            setTimeout(() => {
+
+                setShowPortal(false);
+            }, 450);
     }
 
+    let logged = isLegged && 'logged';
     return (
-        <Container>
+        <Container className={logged}>
             { login ?
             <>
                 <Form onSubmit={handleSubmitLogin}>
@@ -89,6 +118,7 @@ export default function Nickname({setUser, setId, setShowPortal}) {
                 <p onClick={() => setLogin(true)}>Ir para Login</p>
             </>
             }
+            
         </Container>
     )
 }

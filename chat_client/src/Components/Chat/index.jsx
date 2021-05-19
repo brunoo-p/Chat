@@ -13,11 +13,11 @@ export default function Chat() {
 
     const [ connection, setConnection ] = useState(null);
     const [ chat, setChat ] = useState([]);
-    const [ user, setUser ] = useState("Desconhecido");
-    const [ _, setId ] = useState('');
+    const [ user, setUser ] = useState<String>("Desconhecido");
+    const [ _, setId ] = useState<Number>(null);
 
-    const [ theme, setTheme ] = useState('light');
-    const [ showPortal, setShowPortal ] = useState(true);
+    const [ theme, setTheme ] = useState<String>('light');
+    const [ showPortal, setShowPortal ] = useState<Boolean>(true);
     const myUser = user;
 
     const latestChat = useRef(null);
@@ -117,7 +117,7 @@ export default function Chat() {
                 <Container>
                     <Wrapper>
                         
-                        <React.Fragment className="toggle">{ theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> } </React.Fragment>
+                        <>{ theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> } </>
                         
                         <UserDetails setShowPortal={setShowPortal} setChat={setChat}/>
                         

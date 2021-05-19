@@ -4,8 +4,8 @@ import avatarDefault from '../../Assets/avatar.png'
 
 export default function UserDetails({setShowPortal, setChat}) {
     
-    const [ showMenu, setShowMenu ] = useState(false);
-    const [ contactName, setContactName ] = useState('Nome do Contato');
+    const [ showMenu, setShowMenu ] = useState<Boolean>(false);
+    const [ contactName, setContactName ] = useState<String>('Nome do Contato');
     const contactInput = useRef(null);
     
     const KEYBOARD_ENTERCODE = 13;
@@ -40,6 +40,9 @@ export default function UserDetails({setShowPortal, setChat}) {
 
     const exitConversation = () => {
         handleClearChat();
+
+        localStorage.removeItem("user");
+        
         setTimeout(() => {
             setShowPortal(true);
         }, 500);
