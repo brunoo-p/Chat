@@ -9,13 +9,13 @@ function Message({user, message, date, myUser}) {
     let background = user === myUser && 'rgb(46, 213, 115, 0.8)';
     
     
-    useEffect(() => {
+    // useEffect(() => {
 
-        if(user !== myUser){
-            let audio = document.querySelector('#audio');
-            audio.play();
-        }
-    }, [message, user]);
+    //     if(user !== myUser){
+    //         let audio = document.querySelector('#audio');
+    //         audio.play();
+    //     }
+    // }, [message, user]);
 
     return (
         <Container style={{justifyContent: side}}>

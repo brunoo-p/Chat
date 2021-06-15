@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import { ChatInput, ChatWindow, Portal, Nickname, UserDetails } from '..';
 
@@ -17,7 +17,7 @@ export default function Chat() {
     const [ _, setId ] = useState(null);
 
     const [ theme, setTheme ] = useState('light');
-    const [ showPortal, setShowPortal ] = useState(false);
+    const [ showPortal, setShowPortal ] = useState(true);
     const myUser = user;
 
     const latestChat = useRef(null);
@@ -95,13 +95,15 @@ export default function Chat() {
             }
         } 
         
-        const toggleTheme = () => {
+        const toggleTheme = useCallback(() => {
+            
             if (theme === 'light') {
               setTheme('dark');
             } else {
               setTheme('light');
             }
-        }
+            
+        }, [theme]);
 
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
